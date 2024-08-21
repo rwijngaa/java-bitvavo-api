@@ -1,6 +1,7 @@
 package com.bitvavo.api;
 
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -18,16 +19,13 @@ class BitvavoTest {
 
   @BeforeAll
   static void prepare() {
-
-    bitvavo = new Bitvavo(new JSONObject("""
-            {\
-            APIKEY: '<APIKEY>', \
-            APISECRET: '<APISECRET>', \
-            RESTURL: 'https://api.bitvavo.com/v2',\
-            WSURL: 'wss://ws.bitvavo.com/v2/',\
-            ACCESSWINDOW: 10000, \
-            DEBUGGING: false\
-            }"""));
+    bitvavo = new Bitvavo(new JSONObject("{" +
+            "APIKEY: '<APIKEY>', " +
+            "APISECRET: '<APISECRET>', " +
+            "RESTURL: 'https://api.bitvavo.com/v2'," +
+            "WSURL: 'wss://ws.bitvavo.com/v2/'," +
+            "ACCESSWINDOW: 10000, " +
+            "DEBUGGING: false }"));
   }
 
   @Test
